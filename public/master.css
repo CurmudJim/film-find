@@ -1,0 +1,16 @@
+#movie_cards {
+  margin-top: 5rem;
+}
+
+#header-btn {
+  padding: 0;
+  border: none;
+}
+
+body {
+  background: url('https://www.toptal.com/designers/subtlepatterns/patterns/navy_blue.png');
+}
+
+.card {
+  border: none;
+}
