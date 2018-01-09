@@ -35,6 +35,11 @@
 
   </nav>
   <main class="container">
+    <% flash.keys.each do |type| %>
+      <div data-alert class="flash notice">
+        <%= flash[type] %>
+      </div>
+    <% end %>
     <%= yield %>
   </main>
 

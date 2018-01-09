@@ -1,30 +1,9 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
-require 'pony'
+require 'sinatra/flash'
+enable :sessions
+require './message.rb'
 require './themoviedb.rb'
-
-
-def send_message
-
-    Pony.mail({
-      :from => params[:name] + "<" + params[:email] + ">",
-      :to => 'jgarvey86@gmail.com',
-      :subject => params[:name] + " has contacted you",
-      :body => params[:message],
-      :via => :smtp,
-      :via_options => {
-        :address              => 'smtp.gmail.com',
-        :port                 => '587',
-        :enable_starttls_auto => true,
-        :user_name            => 'jgarvey86',
-        :password             => 'rwlnzgeahrbmzbtz',
-        :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
-        :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
-      }
-    })
-
-end
-
 
 get '/' do
   @movies = ["Enter a movie."]
@@ -48,5 +27,6 @@ end
 
 post '/contact' do
   send_message
-  redirect to('/')
+  flash[:notice] = "Thank you for your message. We'll be in touch soon."
+  redirect to('/contact')
 end
