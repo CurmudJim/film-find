@@ -5,11 +5,16 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
+    mail (2.7.0)
+      mini_mime (>= 0.1.1)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mini_mime (1.0.0)
     mustermann (1.0.1)
     netrc (0.11.0)
+    pony (1.12)
+      mail (>= 2.0)
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
@@ -33,6 +38,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  pony
   sinatra
   themoviedb-api
 
