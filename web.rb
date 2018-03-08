@@ -4,6 +4,7 @@ require 'sinatra/flash'
 enable :sessions
 require './message.rb'
 require './themoviedb.rb'
+require "./scraper.rb"
 
 get '/' do
   @movies = ["Enter a movie."]
@@ -17,7 +18,9 @@ post '/' do
   @overviews = @movies[2]
   @years = @movies[3]
   @posters = @movies[4]
-
+    if @movies != []
+      @links = @titles.zip(@years).collect! { |movie| shop(movie.join(" ")) }
+     end
   erb :index
 end
 

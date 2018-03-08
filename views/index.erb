@@ -6,7 +6,7 @@
     <div class="card text-dark bg-light mb-3" style="min-width: 15rem;" >
       <a href="https://www.themoviedb.org/movie/<%= id %>" id="header-btn" target="_blank" class="btn btn-lg btn-block btn-light">
         <% if !@posters[@ids.index(id)].nil? %>
-        <img class="card-img-top" src="https://image.tmdb.org/t/p/w640/<%= @posters[@ids.index(id)] %>" alt="<%= @titles[@ids.index(id)] %>">
+        <img class="card-img-top" src="https://image.tmdb.org/t/p/original<%= @posters[@ids.index(id)] %>" alt="<%= @titles[@ids.index(id)] %>">
         <% else %>
         <!-- <div class="card-header text-white bg-dark text-center">
           <h1>NO POSTER</h1>
@@ -30,7 +30,7 @@
         </p>
 
       </div>
-
+      <a href="<%= @links[@ids.index(id)] %>" target="_blank" class="card-footer card-text text-center btn btn-lg btn-block btn-light">Shop</a>
     </div>
 
     <% end %>
